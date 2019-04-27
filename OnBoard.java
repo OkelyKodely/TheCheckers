@@ -3,26 +3,32 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Dimension;
 import java.awt.Color;
+import java.awt.Toolkit;
 
 public class OnBoard {
-    public static void main(String[] args) {
-        new OnBoard();
-    }
 
     protected JPanel p;
+
     public Checkerz c;
+
     public boolean player1Turn = true;
-    protected int[][] theBoard = new int[8][8];
+
+    protected int[][][] theBoard = new int[8][8][2];
+
     public int[][] theCurrentClickBoard = new int[8][8];
+
     protected boolean isClicked;
+
+    public boolean bestMove;
     
     public OnBoard() {
+        super();
         c = new Checkerz(this);
         p = new JPanel() {
             public void paintComponent(Graphics g) {
                 Graphics2D g2 = (Graphics2D) g.create();
-                g2.setColor(Color.black);
-                //odd horizontal blacks
+                g2.setColor(Color.CYAN);
+                //odd horizontal cyan
                 for(int i=0; i<800; i+=220) {
                     g2.fillRect(i, 0, 110, 110);
                 }
@@ -35,7 +41,7 @@ public class OnBoard {
                 for(int i=0; i<800; i+=220) {
                     g2.fillRect(i, 660, 110, 110);
                 }
-                //even horizontal blacks
+                //even horizontal cyAn
                 for(int i=110; i<800; i+=220) {
                     g2.fillRect(i, 110, 110, 110);
                 }
@@ -48,8 +54,8 @@ public class OnBoard {
                 for(int i=110; i<800; i+=220) {
                     g2.fillRect(i, 770, 110, 110);
                 }
-                g2.setColor(Color.blue);
-                //odd horizontal blues
+                g2.setColor(Color.yellow);
+                //odd horizontal yellow
                 for(int i=110; i<800; i+=220) {
                     g2.fillRect(i, 0, 110, 110);
                 }
@@ -62,7 +68,7 @@ public class OnBoard {
                 for(int i=110; i<800; i+=220) {
                     g2.fillRect(i, 660, 110, 110);
                 }
-                //even horizontal BLueS
+                //even horizontal YELLOws
                 for(int i=0; i<800; i+=220) {
                     g2.fillRect(i, 110, 110, 110);
                 }
@@ -80,8 +86,13 @@ public class OnBoard {
                 try {
                     for(int i=0;i<8;i++) {
                         for(int j=0;j<8;j++) {
-                            if(theBoard[i][j] == -1)
-                                g2.fillOval(i*110, j*110, 110, 110);
+                            if(theBoard[i][j][0] == -1)
+                                g2.fillOval(i*110+5, j*110+5, 100, 100);
+                            if(theBoard[i][j][1] == -1) {
+                                g2.setColor(Color.blue);
+                                g2.drawString("Player 2 King", i*110+20, j*110+60);
+                            }
+                            g2.setColor(Color.red);
                         }
                     }
                 } catch(NullPointerException npe) {
@@ -92,22 +103,34 @@ public class OnBoard {
                 try {
                     for(int i=0;i<8;i++) {
                         for(int j=0;j<8;j++) {
-                            if(theBoard[i][j] == 1)
-                                g2.fillOval(i*110, j*110, 110, 110);
+                            if(theBoard[i][j][0] == 1)
+                                g2.fillOval(i*110+5, j*110+5, 100, 100);
+                            if(theBoard[i][j][1] == -1) {
+                                g2.setColor(Color.blue);
+                                g2.drawString("Player 1 King", i*110+20, j*110+60);
+                            }
+                            g2.setColor(Color.green);
                         }
                     }
                 } catch(NullPointerException npe) {
                     npe.printStackTrace();
                 }
-                //whites have no privilege
                 repaint();
             }
             public Dimension getPreferredSize() {
                 return new Dimension(900,920);
             }
         };
-        p.setBounds( c.getPanel().getBounds());
+        p.setBounds(c.getPanel().getBounds());
         c.getPanel().add(p);
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        c.getPanel().setLocation(dim.width/2-c.getPanel().getSize().width/2, dim.height/2-c.getPanel().getSize().height/2);
         c.getPanel().setVisible(true);
     }
+
+    public static void main(String[] args) {
+        new OnBoard();
+    }
+
+    
 }
