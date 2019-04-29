@@ -22,8 +22,11 @@ public class OnBoard {
     public boolean bestMove;
     
     public OnBoard() {
+
         super();
+
         c = new Checkerz(this);
+
         p = new JPanel() {
             public void paintComponent(Graphics g) {
                 Graphics2D g2 = (Graphics2D) g.create();
@@ -86,35 +89,33 @@ public class OnBoard {
                 try {
                     for(int i=0;i<8;i++) {
                         for(int j=0;j<8;j++) {
-                            if(theBoard[i][j][0] == -1)
+                            if(theBoard[i][j][0] == -1){
                                 g2.fillOval(i*110+5, j*110+5, 100, 100);
-                            if(theBoard[i][j][1] == -1) {
-                                g2.setColor(Color.blue);
-                                g2.drawString("Player 2 King", i*110+20, j*110+60);
+                                if(theBoard[i][j][1] == -1) {
+                                    g2.setColor(Color.blue);
+                                    g2.drawString("Player 2 King", i*110+20, j*110+60);
+                                }
                             }
                             g2.setColor(Color.red);
                         }
                     }
-                } catch(NullPointerException npe) {
-                    npe.printStackTrace();
-                }
+                } catch(NullPointerException npe) {}
                 //draw_player 1
                 g2.setColor(Color.green);
                 try {
                     for(int i=0;i<8;i++) {
                         for(int j=0;j<8;j++) {
-                            if(theBoard[i][j][0] == 1)
+                            if(theBoard[i][j][0] == 1) {
                                 g2.fillOval(i*110+5, j*110+5, 100, 100);
-                            if(theBoard[i][j][1] == -1) {
-                                g2.setColor(Color.blue);
-                                g2.drawString("Player 1 King", i*110+20, j*110+60);
+                                if(theBoard[i][j][1] == -1) {
+                                    g2.setColor(Color.blue);
+                                    g2.drawString("Player 1 King", i*110+20, j*110+60);
+                                }
                             }
                             g2.setColor(Color.green);
                         }
                     }
-                } catch(NullPointerException npe) {
-                    npe.printStackTrace();
-                }
+                } catch(NullPointerException npe) {}
                 repaint();
             }
             public Dimension getPreferredSize() {
@@ -131,6 +132,4 @@ public class OnBoard {
     public static void main(String[] args) {
         new OnBoard();
     }
-
-    
 }
