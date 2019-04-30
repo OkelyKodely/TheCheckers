@@ -1,3 +1,5 @@
+import java.awt.Color;
+import java.awt.Graphics2D;
 import javax.swing.JFrame;
 import java.awt.event.*;
 
@@ -484,7 +486,7 @@ public class Checkerz implements MouseListener {
             if(onBoard.player1Turn) {
                 if(onBoard.theBoard[x][y][0] == 1){
                     onBoard.theCurrentClickBoard[x][y] = 1;
-                    onBoard.theBoard[x][y][0] = 0;
+                    onBoard.theBoard[x][y][0] = 1000;
                     this.fromX = x; this.fromY = y;
                     onBoard.isClicked = true;
                     a = true;
@@ -493,7 +495,7 @@ public class Checkerz implements MouseListener {
             } else if(!onBoard.player1Turn) {
                 if(onBoard.theBoard[x][y][0] == -1){
                     onBoard.theCurrentClickBoard[x][y] = -1;
-                    onBoard.theBoard[x][y][0] = 0;
+                    onBoard.theBoard[x][y][0] = 1001;
                     this.fromX = x; this.fromY = y;
                     onBoard.isClicked = true;
                     b = true;
