@@ -25,7 +25,7 @@ public class Checkerz implements MouseListener {
 
         onBoard = instance;
         panel = new JFrame();
-        panel.setTitle("Checkers");
+        panel.setTitle("Checkers 4 RightWingers");
         panel.setBounds(0, 0, GAME_WIDTH, GAME_HEIGHT);
         panel.setPreferredSize(panel.getBounds().getSize());
         panel.addMouseListener(this);
@@ -159,11 +159,11 @@ public class Checkerz implements MouseListener {
                                 return;
                             }
                         }
-                    } else if ((fromX+1 == x || fromX-1 == x) && fromY+1 == y) {
+                    } else if ((fromX+1 == x || fromX-1 == x) && fromY+1 == y && onBoard.theBoard[fromX][fromY][1] == -1) {
                         onBoard.theBoard[x][y][0] = 1;
                         if (fromY!=-1)
                             onBoard.theBoard[fromX][fromY][0] =0;
-                    } else if ((fromX+2 == x || fromX-2 == x) && fromY+2 == y) {
+                    } else if ((fromX+2 == x || fromX-2 == x) && fromY+2 == y && onBoard.theBoard[fromX][fromY][1] == -1) {
                         if (fromX+2 == x) {
                             if (onBoard.theBoard[x-1][y-1][0] == -1) {
                                 onBoard.theBoard[x][y][0] = 1;
@@ -255,11 +255,11 @@ public class Checkerz implements MouseListener {
                     iijj = getIiJjNegOne();
                     ii = iijj[0];
                     jj = iijj[1];
-                    if ((fromX+1 == x || fromX-1 == x) && fromY-1 == y) {
+                    if ((fromX+1 == x || fromX-1 == x) && fromY-1 == y && onBoard.theBoard[fromX][fromY][1] == -1) {
                         onBoard.theBoard[x][y][0] = -1;
                         if (fromY!=-1)
                             onBoard.theBoard[fromX][fromY][0] =0;
-                    } else if ((fromX+2 == x || fromX-2 == x) && fromY-2 == y) {
+                    } else if ((fromX+2 == x || fromX-2 == x) && fromY-2 == y && onBoard.theBoard[fromX][fromY][1] == -1) {
                         if (fromX+2 == x) {
                             if (onBoard.theBoard[x-1][y+1][0] == 1) {
                                 onBoard.theBoard[x][y][0] = -1;

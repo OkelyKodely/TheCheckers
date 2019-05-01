@@ -84,20 +84,19 @@ public class OnBoard {
     }
     
     private void drawCheckerBoard() {
-        //odd horizontal cyan
-        g2.setColor(Color.CYAN);
+        g2.setColor(Color.DARK_GRAY);
         for (int i=0; i<800; i+=220) {
             g2.fillRect(i, 0, SQUARE_LENGTH, SQUARE_LENGTH);
             if (theBoard[i/SQUARE_LENGTH][0][0] == SELECTED_RED){
                 g2.setColor(Color.RED);
                 g2.drawLine(i+50, 0*SQUARE_LENGTH+50, i+50+10, 0*SQUARE_LENGTH+80);
-                g2.drawLine(i+50+10, 0*SQUARE_LENGTH+80, i+90+10, 0*SQUARE_LENGTH+0);
-                g2.setColor(Color.CYAN);
+                g2.drawLine(i+50+10, 0*SQUARE_LENGTH+80, i+90+10, 0*SQUARE_LENGTH+20);
+                g2.setColor(Color.DARK_GRAY);
             } else if (theBoard[i/SQUARE_LENGTH][0][0] == SELECTED_BLACK){
-                g2.setColor(Color.BLACK);
+                g2.setColor(Color.GREEN);
                 g2.drawLine(i+50, 0*SQUARE_LENGTH+50, i+50+10, 0*SQUARE_LENGTH+80);
-                g2.drawLine(i+50+10, 0*SQUARE_LENGTH+80, i+90+10, 0*SQUARE_LENGTH+0);
-                g2.setColor(Color.CYAN);
+                g2.drawLine(i+50+10, 0*SQUARE_LENGTH+80, i+90+10, 0*SQUARE_LENGTH+20);
+                g2.setColor(Color.DARK_GRAY);
             }
         }
         for (int i=0; i<800; i+=220) {
@@ -105,13 +104,13 @@ public class OnBoard {
             if (theBoard[i/SQUARE_LENGTH][2][0] == SELECTED_RED){
                 g2.setColor(Color.RED);
                 g2.drawLine(i+50, 2*SQUARE_LENGTH+50, i+50+10, 2*SQUARE_LENGTH+80);
-                g2.drawLine(i+50+10, 2*SQUARE_LENGTH+80, i+90+10, 2*SQUARE_LENGTH+0);
-                g2.setColor(Color.CYAN);
+                g2.drawLine(i+50+10, 2*SQUARE_LENGTH+80, i+90+10, 2*SQUARE_LENGTH+20);
+                g2.setColor(Color.DARK_GRAY);
             } else if (theBoard[i/SQUARE_LENGTH][2][0] == SELECTED_BLACK){
-                g2.setColor(Color.BLACK);
+                g2.setColor(Color.GREEN);
                 g2.drawLine(i+50, 2*SQUARE_LENGTH+50, i+50+10, 2*SQUARE_LENGTH+80);
-                g2.drawLine(i+50+10, 2*SQUARE_LENGTH+80, i+90+10, 2*SQUARE_LENGTH+0);
-                g2.setColor(Color.CYAN);
+                g2.drawLine(i+50+10, 2*SQUARE_LENGTH+80, i+90+10, 2*SQUARE_LENGTH+20);
+                g2.setColor(Color.DARK_GRAY);
             }
         }
         for (int i=0; i<800; i+=220) {
@@ -119,13 +118,13 @@ public class OnBoard {
             if (theBoard[i/SQUARE_LENGTH][4][0] == SELECTED_RED){
                 g2.setColor(Color.RED);
                 g2.drawLine(i+50, 4*SQUARE_LENGTH+50, i+50+10, 4*SQUARE_LENGTH+80);
-                g2.drawLine(i+50+10, 4*SQUARE_LENGTH+80, i+90+10, 4*SQUARE_LENGTH+0);
-                g2.setColor(Color.CYAN);
+                g2.drawLine(i+50+10, 4*SQUARE_LENGTH+80, i+90+10, 4*SQUARE_LENGTH+20);
+                g2.setColor(Color.DARK_GRAY);
             } else if (theBoard[i/SQUARE_LENGTH][4][0] == SELECTED_BLACK){
-                g2.setColor(Color.BLACK);
+                g2.setColor(Color.GREEN);
                 g2.drawLine(i+50, 4*SQUARE_LENGTH+50, i+50+10, 4*SQUARE_LENGTH+80);
-                g2.drawLine(i+50+10, 4*SQUARE_LENGTH+80, i+90+10, 4*SQUARE_LENGTH+0);
-                g2.setColor(Color.CYAN);
+                g2.drawLine(i+50+10, 4*SQUARE_LENGTH+80, i+90+10, 4*SQUARE_LENGTH+20);
+                g2.setColor(Color.DARK_GRAY);
             }
         }
         for (int i=0; i<800; i+=220) {
@@ -133,74 +132,72 @@ public class OnBoard {
             if (theBoard[i/SQUARE_LENGTH][6][0] == SELECTED_RED){
                 g2.setColor(Color.RED);
                 g2.drawLine(i+50, 6*SQUARE_LENGTH+50, i+50+10, 6*SQUARE_LENGTH+80);
-                g2.drawLine(i+50+10, 6*SQUARE_LENGTH+80, i+90+10, 6*SQUARE_LENGTH+0);
-                g2.setColor(Color.CYAN);
+                g2.drawLine(i+50+10, 6*SQUARE_LENGTH+80, i+90+10, 6*SQUARE_LENGTH+20);
+                g2.setColor(Color.DARK_GRAY);
             } else if (theBoard[i/SQUARE_LENGTH][6][0] == SELECTED_BLACK){
-                g2.setColor(Color.BLACK);
+                g2.setColor(Color.GREEN);
                 g2.drawLine(i+50, 6*SQUARE_LENGTH+50, i+50+10, 6*SQUARE_LENGTH+80);
-                g2.drawLine(i+50+10, 6*SQUARE_LENGTH+80, i+90+10, 6*SQUARE_LENGTH+0);
-                g2.setColor(Color.CYAN);
+                g2.drawLine(i+50+10, 6*SQUARE_LENGTH+80, i+90+10, 6*SQUARE_LENGTH+20);
+                g2.setColor(Color.DARK_GRAY);
             }
         }
-        //even horizontal cyAn
         for (int i=SQUARE_LENGTH; i<800; i+=220) {
             g2.fillRect(i, SQUARE_LENGTH, SQUARE_LENGTH, SQUARE_LENGTH);
             if (theBoard[i/SQUARE_LENGTH][1][0] == SELECTED_BLACK){
-                g2.setColor(Color.BLACK);
+                g2.setColor(Color.GREEN);
                 g2.drawLine(i+50, 1*SQUARE_LENGTH+50, i+50+10, 1*SQUARE_LENGTH+80);
-                g2.drawLine(i+50+10, 1*SQUARE_LENGTH+80, i+90+10, 1*SQUARE_LENGTH+0);
-                g2.setColor(Color.CYAN);
+                g2.drawLine(i+50+10, 1*SQUARE_LENGTH+80, i+90+10, 1*SQUARE_LENGTH+20);
+                g2.setColor(Color.DARK_GRAY);
             } else if (theBoard[i/SQUARE_LENGTH][1][0] == SELECTED_RED){
                 g2.setColor(Color.RED);
                 g2.drawLine(i+50, 1*SQUARE_LENGTH+50, i+50+10, 1*SQUARE_LENGTH+80);
-                g2.drawLine(i+50+10, 1*SQUARE_LENGTH+80, i+90+10, 1*SQUARE_LENGTH+0);
-                g2.setColor(Color.CYAN);
+                g2.drawLine(i+50+10, 1*SQUARE_LENGTH+80, i+90+10, 1*SQUARE_LENGTH+20);
+                g2.setColor(Color.DARK_GRAY);
             }
         }
         for (int i=SQUARE_LENGTH; i<800; i+=220) {
             g2.fillRect(i, 330, SQUARE_LENGTH, SQUARE_LENGTH);
             if (theBoard[i/SQUARE_LENGTH][3][0] == SELECTED_BLACK){
-                g2.setColor(Color.BLACK);
+                g2.setColor(Color.GREEN);
                 g2.drawLine(i+50, 3*SQUARE_LENGTH+50, i+50+10, 3*SQUARE_LENGTH+80);
-                g2.drawLine(i+50+10, 3*SQUARE_LENGTH+80, i+90+10, 3*SQUARE_LENGTH+0);
-                g2.setColor(Color.CYAN);
+                g2.drawLine(i+50+10, 3*SQUARE_LENGTH+80, i+90+10, 3*SQUARE_LENGTH+20);
+                g2.setColor(Color.DARK_GRAY);
             } else if (theBoard[i/SQUARE_LENGTH][3][0] == SELECTED_RED){
                 g2.setColor(Color.RED);
                 g2.drawLine(i+50, 3*SQUARE_LENGTH+50, i+50+10, 3*SQUARE_LENGTH+80);
-                g2.drawLine(i+50+10, 3*SQUARE_LENGTH+80, i+90+10, 3*SQUARE_LENGTH+0);
-                g2.setColor(Color.CYAN);
+                g2.drawLine(i+50+10, 3*SQUARE_LENGTH+80, i+90+10, 3*SQUARE_LENGTH+20);
+                g2.setColor(Color.DARK_GRAY);
             }
         }
         for (int i=SQUARE_LENGTH; i<800; i+=220) {
             g2.fillRect(i, 550, SQUARE_LENGTH, SQUARE_LENGTH);
             if (theBoard[i/SQUARE_LENGTH][5][0] == SELECTED_BLACK){
-                g2.setColor(Color.BLACK);
+                g2.setColor(Color.GREEN);
                 g2.drawLine(i+50, 5*SQUARE_LENGTH+50, i+50+10, 5*SQUARE_LENGTH+80);
-                g2.drawLine(i+50+10, 5*SQUARE_LENGTH+80, i+90+10, 5*SQUARE_LENGTH+0);
-                g2.setColor(Color.CYAN);
+                g2.drawLine(i+50+10, 5*SQUARE_LENGTH+80, i+90+10, 5*SQUARE_LENGTH+20);
+                g2.setColor(Color.DARK_GRAY);
             } else if (theBoard[i/SQUARE_LENGTH][5][0] == SELECTED_RED){
                 g2.setColor(Color.RED);
                 g2.drawLine(i+50, 5*SQUARE_LENGTH+50, i+50+10, 5*SQUARE_LENGTH+80);
-                g2.drawLine(i+50+10, 5*SQUARE_LENGTH+80, i+90+10, 5*SQUARE_LENGTH+0);
-                g2.setColor(Color.CYAN);
+                g2.drawLine(i+50+10, 5*SQUARE_LENGTH+80, i+90+10, 5*SQUARE_LENGTH+20);
+                g2.setColor(Color.DARK_GRAY);
             }
         }
         for (int i=SQUARE_LENGTH; i<800; i+=220) {
             g2.fillRect(i, 770, SQUARE_LENGTH, SQUARE_LENGTH);
             if (theBoard[i/SQUARE_LENGTH][7][0] == SELECTED_BLACK){
-                g2.setColor(Color.BLACK);
+                g2.setColor(Color.GREEN);
                 g2.drawLine(i+50, 7*SQUARE_LENGTH+50, i+50+10, 7*SQUARE_LENGTH+80);
-                g2.drawLine(i+50+10, 7*SQUARE_LENGTH+80, i+90+10, 7*SQUARE_LENGTH+0);
-                g2.setColor(Color.CYAN);
+                g2.drawLine(i+50+10, 7*SQUARE_LENGTH+80, i+90+10, 7*SQUARE_LENGTH+20);
+                g2.setColor(Color.DARK_GRAY);
             } else if (theBoard[i/SQUARE_LENGTH][7][0] == SELECTED_RED){
                 g2.setColor(Color.RED);
                 g2.drawLine(i+50, 7*SQUARE_LENGTH+50, i+50+10, 7*SQUARE_LENGTH+80);
-                g2.drawLine(i+50+10, 7*SQUARE_LENGTH+80, i+90+10, 7*SQUARE_LENGTH+0);
-                g2.setColor(Color.CYAN);
+                g2.drawLine(i+50+10, 7*SQUARE_LENGTH+80, i+90+10, 7*SQUARE_LENGTH+20);
+                g2.setColor(Color.DARK_GRAY);
             }
         }
-        //odd horizontal yellow
-        g2.setColor(Color.yellow);
+        g2.setColor(Color.LIGHT_GRAY);
         for (int i=SQUARE_LENGTH; i<800; i+=220) {
             g2.fillRect(i, 0, SQUARE_LENGTH, SQUARE_LENGTH);
         }
@@ -233,23 +230,23 @@ public class OnBoard {
         if (player == 2)
             thePlayer = -1;
         if (player == 1)
-            g2.setColor(Color.green);
-        else if (player == 2)
             g2.setColor(Color.red);
+        else if (player == 2)
+            g2.setColor(Color.green);
         try {
             for (int i=0;i<8;i++) {
                 for (int j=0;j<8;j++) {
                     if (theBoard[i][j][0] == thePlayer){
                         g2.fillOval(i*SQUARE_LENGTH+5, j*SQUARE_LENGTH+5, 100, 100);
-                        if (theBoard[i][j][1] == thePlayer) {
+                        if (theBoard[i][j][1] == -1) {
                             g2.setColor(Color.blue);
                             g2.drawString("Player " + player + " King", i*SQUARE_LENGTH+20, j*SQUARE_LENGTH+60);
                         }
                     }
                     if (player == 1)
-                        g2.setColor(Color.green);
-                    else if (player == 2)
                         g2.setColor(Color.red);
+                    else if (player == 2)
+                        g2.setColor(Color.green);
                 }
             }
         } catch(Exception e) {}
