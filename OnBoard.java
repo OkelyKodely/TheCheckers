@@ -3,8 +3,10 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Dimension;
 import java.awt.Color;
+import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.Toolkit;
+import javax.imageio.ImageIO;
 import javax.swing.JOptionPane;
 
 public class OnBoard {
@@ -29,8 +31,14 @@ public class OnBoard {
     private final int SQUARE_LENGTH = 110;
     private final int SELECTED_RED = 1001;
     private final int SELECTED_BLACK = 1000;
+    
+    private Image redPiece = null;
+    private Image greenPiece = null;
 
-    public OnBoard() {
+    public OnBoard() throws Exception {
+
+        redPiece = ImageIO.read(getClass().getResource("redpiece.png"));
+        greenPiece = ImageIO.read(getClass().getResource("greenpiece.png"));
 
         c = new Checkerz(this);
 
@@ -237,7 +245,11 @@ public class OnBoard {
             for (int i=0;i<8;i++) {
                 for (int j=0;j<8;j++) {
                     if (theBoard[i][j][0] == thePlayer){
-                        g2.fillOval(i*SQUARE_LENGTH+5, j*SQUARE_LENGTH+5, 100, 100);
+                        if (player == 1)
+                            g2.drawImage(redPiece, i*SQUARE_LENGTH+5, j*SQUARE_LENGTH+5, 100, 100, null);
+                        else if (player == 2)
+                            g2.drawImage(greenPiece, i*SQUARE_LENGTH+5, j*SQUARE_LENGTH+5, 100, 100, null);
+                        //g2.fillOval(i*SQUARE_LENGTH+5, j*SQUARE_LENGTH+5, 100, 100);
                         if (theBoard[i][j][1] == -1) {
                             g2.setColor(Color.blue);
                             g2.drawString("Player " + player + " King", i*SQUARE_LENGTH+20, j*SQUARE_LENGTH+60);

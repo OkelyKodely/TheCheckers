@@ -4,8 +4,11 @@ public class CheckerzDriver {
 
     public static void main(String[] args) {
 
-        OnBoard instance = new OnBoard();
-
-        instance.setReadyMsg();
+        try {
+            OnBoard instance = new OnBoard();
+            
+            instance.setReadyMsg();
+        } catch (Exception exception) {
+        }
     }
 }

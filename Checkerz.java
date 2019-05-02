@@ -25,7 +25,7 @@ public class Checkerz implements MouseListener {
 
         onBoard = instance;
         panel = new JFrame();
-        panel.setTitle("Checkers 4 RightWingers");
+        panel.setTitle("Checkers For Right Wingers");
         panel.setBounds(0, 0, GAME_WIDTH, GAME_HEIGHT);
         panel.setPreferredSize(panel.getBounds().getSize());
         panel.addMouseListener(this);
