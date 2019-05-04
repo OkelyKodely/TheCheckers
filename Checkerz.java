@@ -2,7 +2,6 @@ import javax.swing.JFrame;
 import java.awt.event.*;
 
 public class Checkerz implements MouseListener {
-
     private JFrame panel = null;
 
     private OnBoard onBoard = null;
@@ -21,87 +20,133 @@ public class Checkerz implements MouseListener {
     private final int SELECTED_RED = 1001;
     private final int SELECTED_BLACK = 1000;
     
+
     public Checkerz(OnBoard instance) {
 
+
         onBoard = instance;
+
         panel = new JFrame();
-        panel.setTitle("Checkers For Right Wingers");
+        panel.setTitle("Peeta Checkers");
         panel.setBounds(0, 0, GAME_WIDTH, GAME_HEIGHT);
         panel.setPreferredSize(panel.getBounds().getSize());
         panel.addMouseListener(this);
         panel.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         panel.setResizable(false);
         panel.pack();
+
         initializeBoardPieces();
     }
     
     private void initializeBoardPieces() {
-        for (int i=1;i<8;i+=2) {
+
+
+        for (int i=0;i<8;i+=2) {
             onBoard.theBoard[i][5][0] = 1;
         }
-        for (int i=0;i<8;i+=2) {
+
+
+        for (int i=1;i<8;i+=2) {
             onBoard.theBoard[i][6][0] = 1;
         }
-        for (int i=1;i<8;i+=2) {
+
+
+        for (int i=0;i<8;i+=2) {
             onBoard.theBoard[i][7][0] = 1;
         }
-        for (int i=0;i<8;i+=2) {
+
+
+        for (int i=1;i<8;i+=2) {
             onBoard.theBoard[i][0][0] = -1;
         }
-        for (int i=1;i<8;i+=2) {
+
+
+        for (int i=0;i<8;i+=2) {
             onBoard.theBoard[i][1][0] = -1;
         }
-        for (int i=0;i<8;i+=2) {
+
+
+        for (int i=1;i<8;i+=2) {
             onBoard.theBoard[i][2][0] = -1;
         }
     }
 
     public JFrame getPanel() {
+
         return panel;
     }
     public void setPanel(JFrame panel) {
+
         this.panel = panel;
     }
     public OnBoard getOnBoard() {
+
         return onBoard;
     }
     public void setOnBoard(OnBoard onBoard) {
+
         this.onBoard = onBoard;
     }
 
     private boolean squareIsEmpty(int x, int y) {
+
+
         boolean isValidMove = true;
+
         if (onBoard.theBoard[x][y][0] != 0) {
+
+
             isValidMove = false;
+
         }
+
         return isValidMove;
     }
 
     private boolean checksOutToValidSquareType(int x, int y) {
+
+
         boolean isValidMove = false;
         boolean evenEvenOrOddOdd = false;
+
         int resultModX = x % 2;
         int resultModY = y % 2;
+
         if (resultModX == 0 && resultModY == 0)
             evenEvenOrOddOdd = true;
+
         if (resultModX != 0 && resultModY != 0)
             evenEvenOrOddOdd = true;
-        if (!(evenEvenOrOddOdd)) {
+
+        
+        
+        if (evenEvenOrOddOdd) {
             isValidMove = false;
         } else {
             isValidMove = true;
         }
+
+
+        
         return isValidMove;
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
+        
+
+        
         int x = e.getPoint().x / SQUARE_LENGTH;
+
         int y = e.getPoint().y / SQUARE_LENGTH;
 
         if (checksOutToValidSquareType(x, y)) {
+        
+            
             moveTo(fromX, fromY, x, y);
+        
         }
+
     }
     @Override
     public void mousePressed(MouseEvent e) {}
